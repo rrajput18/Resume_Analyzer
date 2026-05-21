@@ -53,7 +53,7 @@ function App() {
         
         <div className="nav-actions">
           <a 
-            href="https://forms.google.com" 
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeTS9fyQ-xFQyqt0jc3cYb-dHFc6kG2sm-u5XLa2BUqmpR1PQ/viewform?usp=header" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="feedback-btn"

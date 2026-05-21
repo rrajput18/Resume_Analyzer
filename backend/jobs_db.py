@@ -178,5 +178,161 @@ JOBS = [
         "skills_required": [
             "Process Simulation", "Aspen Plus", "Chemical Safety", "P&ID", "Mass Balance", "Thermodynamics", "Excel"
         ]
+    },
+    {
+        "id": 15,
+        "title": "HVAC Design Engineer",
+        "company": "Therma Corp",
+        "location": "Phoenix, AZ (Hybrid)",
+        "department": "Mechanical Engineering",
+        "salary_range": "$80,000 - $105,000",
+        "description": "We are seeking an HVAC Design Engineer to create heating, ventilation, and air conditioning system layouts. You will calculate heating and cooling loads, select equipment, perform duct designs using CAD software, and ensure compliance with building regulations.",
+        "skills_required": [
+            "CAD", "HVAC", "Heat Transfer", "Duct Design", "Load Calculations", "Thermodynamics", "Fluid Mechanics"
+        ]
+    },
+    {
+        "id": 16,
+        "title": "Robotics & Automation Engineer",
+        "company": "RoboTech Solutions",
+        "location": "Pittsburgh, PA (On-site)",
+        "department": "Mechanical Engineering",
+        "salary_range": "$95,000 - $130,000",
+        "description": "Join our robotics group to design and program robotic arms, pick-and-place systems, and automated guided vehicles (AGVs). You will integrate sensors, design pneumatic and hydraulic mechanisms, and program motion profiles using ROS and Python/C++.",
+        "skills_required": [
+            "Robotics", "Pneumatics", "Hydraulics", "ROS", "SolidWorks", "Python", "CAD", "Control Systems"
+        ]
+    },
+    {
+        "id": 17,
+        "title": "Construction Project Manager",
+        "company": "Summit Builders",
+        "location": "Dallas, TX (Hybrid)",
+        "department": "Civil Engineering",
+        "salary_range": "$95,000 - $125,000",
+        "description": "We are hiring a Construction Project Manager to oversee large commercial construction projects. You will develop project timelines, manage sub-contractors, monitor material estimations, ensure site safety compliance, and coordinate structural inspections.",
+        "skills_required": [
+            "Construction Management", "Estimation", "Scheduling", "Subcontractor Coordination", "AutoCAD", "Site Safety", "Budgeting"
+        ]
+    },
+    {
+        "id": 18,
+        "title": "Geotechnical Engineer",
+        "company": "EarthCore Consultants",
+        "location": "Salt Lake City, UT (On-site)",
+        "department": "Civil Engineering",
+        "salary_range": "$85,000 - $110,000",
+        "description": "Perform subsurface investigations, soil mechanics testing, and foundation analyses. You will write geotechnical reports, evaluate slope stability, recommend retaining wall designs, and use GIS databases to map ground conditions.",
+        "skills_required": [
+            "Geotechnical Engineering", "Soil Mechanics", "Foundation Design", "GIS", "Surveying", "AutoCAD"
+        ]
+    },
+    {
+        "id": 19,
+        "title": "PCB Hardware Design Engineer",
+        "company": "CircuitCraft Labs",
+        "location": "San Jose, CA (Hybrid)",
+        "department": "Electrical Engineering",
+        "salary_range": "$105,000 - $140,000",
+        "description": "Design multi-layer high-speed printed circuit boards (PCBs) for consumer electronics. You will select electronic components, perform schematic capture and PCB layout in Altium Designer, run signal integrity simulations, and debug prototypes using oscilloscopes.",
+        "skills_required": [
+            "PCB Design", "Circuit Design", "Altium Designer", "Signal Integrity", "Oscilloscope", "Microcontrollers", "Debugging"
+        ]
+    },
+    {
+        "id": 20,
+        "title": "Automation & Controls Specialist",
+        "company": "LogicFlow Controls",
+        "location": "Cleveland, OH (Hybrid)",
+        "department": "Electrical Engineering",
+        "salary_range": "$90,000 - $115,000",
+        "description": "Program and integrate programmable logic controllers (PLCs) and HMI interfaces for assembly line automation. You will design electrical control cabinets, select sensor networks, and troubleshoot industrial control systems on-site.",
+        "skills_required": [
+            "PLC", "Control Systems", "HMI Programming", "SCADA", "Electrical Troubleshooting", "Arduino", "MATLAB"
+        ]
+    },
+    {
+        "id": 21,
+        "title": "Petroleum Refinery Engineer",
+        "company": "RefineCo Energy",
+        "location": "New Orleans, LA (On-site)",
+        "department": "Chemical Engineering",
+        "salary_range": "$110,000 - $145,000",
+        "description": "Optimize crude distillation, catalytic cracking, and hydrotreating operations in a major oil refinery. You will perform mass balances, conduct process safety reviews (HAZOP), troubleshoot equipment malfunctions, and optimize energy efficiency using Aspen Plus.",
+        "skills_required": [
+            "Refining", "Chemical Safety", "Process Optimization", "Aspen Plus", "Mass Balance", "P&ID", "Thermodynamics"
+        ]
+    },
+    {
+        "id": 22,
+        "title": "Business Development Manager",
+        "company": "GrowthScale Partners",
+        "location": "New York, NY (Hybrid)",
+        "department": "Business & Management",
+        "salary_range": "$95,000 - $130,000",
+        "description": "Identify new B2B sales opportunities, forge strategic partnerships, and drive revenue growth. You will conduct market research, manage client acquisition pipelines, deliver sales presentations, and coordinate closely with product marketing teams.",
+        "skills_required": [
+            "Business Development", "Client Relations", "Market Research", "Negotiation", "Sales Strategy", "CRM", "Presentation"
+        ]
+    },
+    {
+        "id": 23,
+        "title": "Operations & Logistics Manager",
+        "company": "GlobalLogistics Group",
+        "location": "Miami, FL (On-site)",
+        "department": "Business & Management",
+        "salary_range": "$85,000 - $115,000",
+        "description": "Manage warehouse operations, distribution channels, and inventory logistics. You will streamline supply chain workflows, negotiate freight contracts, manage logistics staff, and implement data-driven process optimization strategies.",
+        "skills_required": [
+            "Operations Management", "Supply Chain", "Logistics", "Inventory Management", "Process Optimization", "Budgeting", "Excel"
+        ]
+    },
+    {
+        "id": 24,
+        "title": "Financial Planning & Analysis Specialist",
+        "company": "CapitalInvest Corp",
+        "location": "Charlotte, NC (Hybrid)",
+        "department": "Finance & Accounting",
+        "salary_range": "$90,000 - $120,000",
+        "description": "Build financial models, forecast quarterly revenues, and analyze budget variances. You will support leadership with financial planning, perform capital structure analysis, and compile periodic corporate financial reports using Excel and ERP software.",
+        "skills_required": [
+            "Financial Analysis", "Financial Modeling", "Forecasting", "Budgeting", "Corporate Finance", "Excel", "Data Analysis"
+        ]
+    },
+    {
+        "id": 25,
+        "title": "Human Resources Operations Manager",
+        "company": "TalentSync Solutions",
+        "location": "Atlanta, GA (Remote)",
+        "department": "Human Resources",
+        "salary_range": "$80,000 - $105,000",
+        "description": "Lead HR operations, payroll configuration, and employee onboarding compliance. You will resolve employee relations inquiries, administer corporate benefit programs, and update HR policy handbooks in accordance with state and federal labor laws.",
+        "skills_required": [
+            "Human Resources", "Onboarding", "Employee Relations", "Payroll", "Labor Law Compliance", "Conflict Resolution", "Performance Management"
+        ]
+    },
+    {
+        "id": 26,
+        "title": "Biomedical Design Engineer",
+        "company": "MedTech Instruments",
+        "location": "Minneapolis, MN (Hybrid)",
+        "department": "Healthcare & Biomedical",
+        "salary_range": "$90,000 - $120,000",
+        "description": "Design and test innovative medical devices, surgical tools, and health monitoring sensors. You will create 3D CAD assemblies, conduct biocompatibility testing, perform mechanical stress simulations, and compile FDA regulatory compliance documentation.",
+        "skills_required": [
+            "Biomedical Engineering", "Medical Devices", "Biocompatibility", "FDA Regulations", "SolidWorks", "CAD", "Testing"
+        ]
+    },
+    {
+        "id": 27,
+        "title": "Clinical Research Associate",
+        "company": "Pathology Research Labs",
+        "location": "Philadelphia, PA (On-site)",
+        "department": "Healthcare & Biomedical",
+        "salary_range": "$75,000 - $100,000",
+        "description": "Monitor and coordinate clinical trial projects in accordance with Good Clinical Practice guidelines. You will review case report forms, audit clinical trial sites, track patient enrollment milestones, and manage data compliance logs.",
+        "skills_required": [
+            "Clinical Trials", "GCP Guidelines", "Clinical Research", "Data Compliance", "Regulatory Affairs", "Medical Terminology"
+        ]
     }
 ]

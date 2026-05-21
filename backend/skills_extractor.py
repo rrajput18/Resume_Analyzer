@@ -36,22 +36,42 @@ SKILL_CATEGORIES = {
     "Mechanical Engineering": [
         "CAD", "SolidWorks", "FEA", "Finite Element Analysis", "Manufacturing", 
         "GD&T", "ANSYS", "Thermodynamics", "Fluid Mechanics", "HVAC", "Heat Transfer",
-        "Robotics", "Pneumatics", "Hydraulics"
+        "Robotics", "Pneumatics", "Hydraulics", "ROS", "Duct Design", "Load Calculations"
     ],
     "Civil Engineering": [
         "Structural Analysis", "AutoCAD", "STAAD.Pro", "Concrete Design", 
         "Steel Design", "Revit", "Construction Management", "Surveying", 
-        "Geotechnical Engineering", "GIS", "Hydraulics", "Estimation"
+        "Geotechnical Engineering", "GIS", "Hydraulics", "Estimation",
+        "Scheduling", "Subcontractor Coordination", "Site Safety", "Budgeting"
     ],
     "Electrical Engineering": [
         "Circuit Design", "PCB Design", "Altium Designer", "MATLAB", 
         "Microcontrollers", "PLC", "Control Systems", "Arduino", 
-        "Power Systems", "Signal Processing", "FPGA", "VHDL", "Verilog", "Oscilloscope"
+        "Power Systems", "Signal Processing", "FPGA", "VHDL", "Verilog", "Oscilloscope",
+        "Signal Integrity", "Debugging", "HMI Programming", "SCADA", "Electrical Troubleshooting"
     ],
     "Chemical Engineering": [
         "Process Simulation", "Aspen Plus", "Chemical Safety", "P&ID", 
         "Mass Balance", "Energy Balance", "Reaction Kinetics", "Refining", 
-        "Process Optimization"
+        "Process Optimization", "HAZOP"
+    ],
+    "Business & Management": [
+        "Business Development", "Client Relations", "Market Research", "Negotiation",
+        "Sales Strategy", "CRM", "Presentation", "Operations Management", "Supply Chain",
+        "Logistics", "Inventory Management", "Process Optimization", "Budgeting", "Excel"
+    ],
+    "Finance & Accounting": [
+        "Financial Analysis", "Financial Modeling", "Forecasting", "Budgeting",
+        "Corporate Finance", "Excel", "Data Analysis"
+    ],
+    "Human Resources": [
+        "Human Resources", "Onboarding", "Employee Relations", "Payroll",
+        "Labor Law Compliance", "Conflict Resolution", "Performance Management"
+    ],
+    "Healthcare & Biomedical": [
+        "Biomedical Engineering", "Medical Devices", "Biocompatibility", "FDA Regulations",
+        "SolidWorks", "CAD", "Testing", "Clinical Trials", "GCP Guidelines",
+        "Clinical Research", "Data Compliance", "Regulatory Affairs", "Medical Terminology"
     ]
 }
 

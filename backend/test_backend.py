@@ -57,5 +57,67 @@ def test_resume_analyzer():
         print(f"   Missing Skills: {match['skills_analysis']['missing_skills']}")
         print("-" * 50)
 
+    # 2. Mock mechanical engineering profile
+    mech_resume = """
+    Jane Smith
+    Email: jane.smith@email.com
+    Phone: 987-654-3210
+    Location: Detroit, MI
+    
+    Summary:
+    Dedicated Mechanical Engineer with expertise in robotics, 3D modeling, and HVAC systems design.
+    
+    Skills:
+    CAD, SolidWorks, Robotics, HVAC, ROS, Thermodynamics, Fluid Mechanics, Pneumatics, Hydraulics, ANSYS, FEA
+    """
+    print("\n" + "=" * 40)
+    print("=== Testing Mechanical Engineering Profile ===")
+    print("=" * 40)
+    skills_payload_mech = extract_skills(mech_resume)
+    print(f"Total skills matched: {len(skills_payload_mech['matched_skills'])}")
+    print(f"Extracted skills: {skills_payload_mech['matched_skills']}")
+    match_payload_mech = match_resume(mech_resume, skills_payload_mech["matched_skills"])
+    job_matches_mech = match_payload_mech["job_matches"]
+    
+    print("\nTop 3 Job Matches for Mechanical Profile:")
+    for idx, match in enumerate(job_matches_mech[:3]):
+        print(f"{idx+1}. {match['title']} at {match['company']} ({match['department']})")
+        print(f"   ATS Score: {match['match_scores']['ats_score']}%")
+        print(f"   Semantic Match: {match['match_scores']['semantic_similarity']}% | Skills Match: {match['match_scores']['skills_match']}%")
+        print(f"   Matched Skills: {match['skills_analysis']['matched_skills']}")
+        print(f"   Missing Skills: {match['skills_analysis']['missing_skills']}")
+        print("-" * 50)
+
+    # 3. Mock Finance profile
+    finance_resume = """
+    Robert Johnson
+    Email: robert.j@email.com
+    Phone: 555-019-2834
+    Location: New York, NY
+    
+    Summary:
+    Financial analyst with experience in financial modeling, budgeting, and forecasting. Strong expertise in corporate finance and Excel.
+    
+    Skills:
+    Financial Analysis, Financial Modeling, Budgeting, Forecasting, Corporate Finance, Excel, Data Analysis
+    """
+    print("\n" + "=" * 40)
+    print("=== Testing Finance Profile ===")
+    print("=" * 40)
+    skills_payload_fin = extract_skills(finance_resume)
+    print(f"Total skills matched: {len(skills_payload_fin['matched_skills'])}")
+    print(f"Extracted skills: {skills_payload_fin['matched_skills']}")
+    match_payload_fin = match_resume(finance_resume, skills_payload_fin["matched_skills"])
+    job_matches_fin = match_payload_fin["job_matches"]
+    
+    print("\nTop 3 Job Matches for Finance Profile:")
+    for idx, match in enumerate(job_matches_fin[:3]):
+        print(f"{idx+1}. {match['title']} at {match['company']} ({match['department']})")
+        print(f"   ATS Score: {match['match_scores']['ats_score']}%")
+        print(f"   Semantic Match: {match['match_scores']['semantic_similarity']}% | Skills Match: {match['match_scores']['skills_match']}%")
+        print(f"   Matched Skills: {match['skills_analysis']['matched_skills']}")
+        print(f"   Missing Skills: {match['skills_analysis']['missing_skills']}")
+        print("-" * 50)
+
 if __name__ == "__main__":
     test_resume_analyzer()
