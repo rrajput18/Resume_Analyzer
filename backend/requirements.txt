@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pypdf
+spacy
+sentence-transformers
+scikit-learn
+python-multipart
+pandas
+numpy
