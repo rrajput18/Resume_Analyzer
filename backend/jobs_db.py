@@ -130,5 +130,53 @@ JOBS = [
             "Product Management", "Agile", "Generative AI", "NLP", "Scrum",
             "Data Analysis", "Roadmapping", "UX Design", "SQL", "Market Research"
         ]
+    },
+    {
+        "id": 11,
+        "title": "Mechanical Design Engineer",
+        "company": "Apex Engineering Group",
+        "location": "Detroit, MI (Hybrid)",
+        "department": "Mechanical Engineering",
+        "salary_range": "$85,000 - $110,000",
+        "description": "We are seeking a Mechanical Design Engineer to create detailed 3D CAD models, run finite element analysis (FEA), and prepare engineering drawings using SolidWorks. You will work on automotive components, analyze heat transfer, and coordinate prototype testing.",
+        "skills_required": [
+            "SolidWorks", "AutoCAD", "FEA", "Manufacturing", "GD&T", "ANSYS", "CAD", "Thermodynamics", "Fluid Mechanics"
+        ]
+    },
+    {
+        "id": 12,
+        "title": "Civil Structural Engineer",
+        "company": "BuildCorp Infrastructure",
+        "location": "Chicago, IL (On-site)",
+        "department": "Civil Engineering",
+        "salary_range": "$90,000 - $120,000",
+        "description": "Join our structural team to perform load calculations, analyze steel and concrete frames, and design resilient foundations. You will model structures using STAAD.Pro and Revit, and collaborate with construction managers to ensure project execution.",
+        "skills_required": [
+            "Structural Analysis", "AutoCAD", "STAAD.Pro", "Concrete Design", "Steel Design", "Revit", "Construction Management", "Surveying"
+        ]
+    },
+    {
+        "id": 13,
+        "title": "Electrical Systems Engineer",
+        "company": "VoltEdge Power Solutions",
+        "location": "Denver, CO (Hybrid)",
+        "department": "Electrical Engineering",
+        "salary_range": "$95,000 - $125,000",
+        "description": "We are hiring an Electrical Systems Engineer to design circuits, create PCB layouts, and program PLCs for industrial automation. You will work with Altium Designer, test microcontrollers, and analyze power distributions using MATLAB.",
+        "skills_required": [
+            "Circuit Design", "PCB Design", "Altium Designer", "PLC", "Microcontrollers", "MATLAB", "Control Systems", "Arduino", "Oscilloscope"
+        ]
+    },
+    {
+        "id": 14,
+        "title": "Chemical Process Engineer",
+        "company": "ChemFlow Refining",
+        "location": "Houston, TX (On-site)",
+        "department": "Chemical Engineering",
+        "salary_range": "$100,000 - $135,000",
+        "description": "Seeking a Chemical Process Engineer to design, simulate, and refine chemical processes. You will perform mass and energy balances, design P&ID schematics, select equipment, and ensure adherence to chemical safety standards using Aspen Plus.",
+        "skills_required": [
+            "Process Simulation", "Aspen Plus", "Chemical Safety", "P&ID", "Mass Balance", "Thermodynamics", "Excel"
+        ]
     }
 ]

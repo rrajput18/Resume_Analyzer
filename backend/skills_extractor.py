@@ -32,6 +32,26 @@ SKILL_CATEGORIES = {
         "Microservices", "gRPC", "Distributed Systems", "Cloud Security", 
         "System Design", "Data Warehousing", "Data Visualization", "Reporting",
         "Market Research", "Roadmapping", "UX Design"
+    ],
+    "Mechanical Engineering": [
+        "CAD", "SolidWorks", "FEA", "Finite Element Analysis", "Manufacturing", 
+        "GD&T", "ANSYS", "Thermodynamics", "Fluid Mechanics", "HVAC", "Heat Transfer",
+        "Robotics", "Pneumatics", "Hydraulics"
+    ],
+    "Civil Engineering": [
+        "Structural Analysis", "AutoCAD", "STAAD.Pro", "Concrete Design", 
+        "Steel Design", "Revit", "Construction Management", "Surveying", 
+        "Geotechnical Engineering", "GIS", "Hydraulics", "Estimation"
+    ],
+    "Electrical Engineering": [
+        "Circuit Design", "PCB Design", "Altium Designer", "MATLAB", 
+        "Microcontrollers", "PLC", "Control Systems", "Arduino", 
+        "Power Systems", "Signal Processing", "FPGA", "VHDL", "Verilog", "Oscilloscope"
+    ],
+    "Chemical Engineering": [
+        "Process Simulation", "Aspen Plus", "Chemical Safety", "P&ID", 
+        "Mass Balance", "Energy Balance", "Reaction Kinetics", "Refining", 
+        "Process Optimization"
     ]
 }
 
