@@ -6,7 +6,7 @@ import ATSGauge from './components/ATSGauge';
 import SkillsDisplay from './components/SkillsDisplay';
 import JobRecommendations from './components/JobRecommendations';
 import JobDetailsModal from './components/JobDetailsModal';
-import { SunIcon, MoonIcon } from './components/Icons';
+import { SunIcon, MoonIcon, FeedbackIcon } from './components/Icons';
 
 function App() {
   const [analyzing, setAnalyzing] = useState(false);
@@ -52,6 +52,17 @@ function App() {
         </div>
         
         <div className="nav-actions">
+          <a 
+            href="https://forms.google.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="feedback-btn"
+            title="Share Feedback"
+          >
+            <FeedbackIcon />
+            <span className="feedback-btn-text">Feedback</span>
+          </a>
+
           <button 
             className="theme-toggle-btn" 
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
