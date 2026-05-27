@@ -6,6 +6,11 @@ const ATSGauge = ({ scores, formattingAnalysis }) => {
   const score = scores.ats_score;
 
   useEffect(() => {
+    if (score === 0) {
+      setAnimatedScore(0);
+      return;
+    }
+
     // Animate score counter on mount
     let start = 0;
     const duration = 1000; // 1s

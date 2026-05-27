@@ -89,15 +89,8 @@ const JobRecommendations = ({ jobMatches, onSelectJob }) => {
             return (
               <div key={job.job_id} className="job-card glass-card-nested">
                 <div className="job-card-top">
-                  <div 
-                    className="company-logo-avatar"
-                    style={{ background: getCompanyGradient(job.company) }}
-                  >
-                    {getCompanyInitials(job.company)}
-                  </div>
                   <div className="job-meta-primary">
                     <h3 className="job-title-text">{job.title}</h3>
-                    <span className="job-company-text">{job.company}</span>
                   </div>
                   <div className={`job-match-badge ${getScoreColor(atsScore)}`}>
                     <span className="badge-score-val">{atsScore}%</span>
@@ -107,16 +100,8 @@ const JobRecommendations = ({ jobMatches, onSelectJob }) => {
 
                 <div className="job-meta-secondary">
                   <div className="meta-item">
-                    <LocationIcon className="meta-icon w-4 h-4" />
-                    <span>{job.location}</span>
-                  </div>
-                  <div className="meta-item">
                     <BriefcaseIcon className="meta-icon w-4 h-4" />
                     <span>{job.department}</span>
-                  </div>
-                  <div className="meta-item">
-                    <CashIcon className="meta-icon w-4 h-4" />
-                    <span>{job.salary_range}</span>
                   </div>
                 </div>
 

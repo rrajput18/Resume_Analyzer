@@ -21,7 +21,6 @@ const JobDetailsModal = ({ job, onClose }) => {
         <div className="modal-header">
           <div className="modal-title-area">
             <h2 className="modal-job-title">{job.title}</h2>
-            <p className="modal-job-company">{job.company}</p>
           </div>
           <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
             &times;
@@ -32,16 +31,8 @@ const JobDetailsModal = ({ job, onClose }) => {
           {/* Top Metadata Row */}
           <div className="modal-metadata-row">
             <div className="meta-badge">
-              <LocationIcon className="meta-badge-icon" />
-              <span>{job.location}</span>
-            </div>
-            <div className="meta-badge">
               <BriefcaseIcon className="meta-badge-icon" />
               <span>{job.department}</span>
-            </div>
-            <div className="meta-badge">
-              <CashIcon className="meta-badge-icon" />
-              <span>{job.salary_range}</span>
             </div>
             <div className={`meta-badge-score ${atsScore >= 75 ? 'bg-green' : atsScore >= 50 ? 'bg-yellow' : 'bg-red'}`}>
               <span>{atsScore}% Compatibility</span>

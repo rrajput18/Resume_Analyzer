@@ -48,7 +48,6 @@ function App() {
       <nav className="app-navbar">
         <div className="nav-brand">
           <span className="nav-logo-text">ProfileFit®</span>
-          <span className="nav-logo-badge">v1.2.0</span>
         </div>
         
         <div className="nav-actions">
@@ -104,7 +103,7 @@ function App() {
                   </h3>
                   <div className="active-file-details">
                     <p style={{ fontWeight: 600, wordBreak: 'break-all', fontSize: '0.9rem' }}>
-                      Uploaded_Resume.pdf
+                      {analysisResult.filename || "Uploaded_Resume.pdf"}
                     </p>
                     <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '0.3rem' }}>
                       Status: Extracted & Indexed
@@ -115,17 +114,7 @@ function App() {
                 {/* Categorized Skills Card */}
                 <SkillsDisplay skillsData={analysisResult.skills_extracted} />
                 
-                {/* System Pipeline Info Card */}
-                <div className="glass-card-nested" style={{ opacity: 0.8 }}>
-                  <h3 className="card-subtitle" style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>
-                    Pipeline Details
-                  </h3>
-                  <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-                    NLP Model: spaCy (en_core_web_sm)<br />
-                    Similarity: MiniLM-L6 Cosine Embeddings<br />
-                    Dataset: Locally Indexed Jobs v1.0
-                  </p>
-                </div>
+
               </aside>
 
               {/* Right Main Pane */}

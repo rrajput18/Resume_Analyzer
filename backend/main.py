@@ -1,10 +1,14 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 from pdf_parser import extract_text_from_pdf
-from skills_extractor import extract_skills, initialize_nlp
-from matcher import match_resume, precalculate_job_embeddings
+from skills_extractor import extract_skills
+from matcher import match_resume
 from jobs_db import JOBS
 
 app = FastAPI(
@@ -25,13 +29,9 @@ app.add_middleware(
 @app.on_event("startup")
 def startup_event():
     """
-    Load NLP models and precalculate job embeddings at server startup
-    so that user requests are fast and responsive.
+    Startup event handler.
     """
-    print("Starting up server and warming up NLP models...")
-    initialize_nlp()
-    precalculate_job_embeddings()
-    print("NLP models and job embeddings initialized successfully.")
+    print("Resume Analyzer API server started successfully.")
 
 @app.get("/api/health")
 def health_check():
@@ -50,7 +50,7 @@ async def analyze_resume(file: UploadFile = File(...)):
     Upload a resume PDF, parse text, extract skills, and match with the job database.
     """
     # 1. Validate file extension
-    if not file.filename.endswith('.pdf'):
+    if not file.filename.lower().endswith('.pdf'):
         raise HTTPException(
             status_code=400, 
             detail="Invalid file format. Only PDF files are supported."
@@ -68,13 +68,11 @@ async def analyze_resume(file: UploadFile = File(...)):
                 detail="Could not extract text from the PDF. Please make sure the PDF is not scanned/image-only or encrypted."
             )
             
-        # 4. Extract skills using spaCy
-        skills_payload = extract_skills(resume_text)
+        # 4. Perform matching and ATS scoring (skills are extracted via Gemini inside match_resume)
+        match_payload = match_resume(resume_text)
+        skills_payload = match_payload["skills_extracted"]
         
-        # 5. Perform matching and ATS scoring
-        match_payload = match_resume(resume_text, skills_payload["matched_skills"])
-        
-        # 6. Calculate summary metrics
+        # 5. Calculate summary metrics
         job_matches = match_payload["job_matches"]
         avg_ats_score = int(sum(job["match_scores"]["ats_score"] for job in job_matches) / len(job_matches)) if job_matches else 0
         top_match_job = job_matches[0]["title"] if job_matches else "N/A"

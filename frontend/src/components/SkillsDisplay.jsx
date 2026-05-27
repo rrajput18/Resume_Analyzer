@@ -18,7 +18,7 @@ const SkillsDisplay = ({ skillsData }) => {
         <h2 className="section-title">Extracted Profile Skills</h2>
         <span className="skills-badge-count">{matched_skills.length} Skills Identified</span>
       </div>
-      <p className="section-subtitle">Categorized skills detected in your profile using NLP parsing.</p>
+
 
       <div className="skills-categories-grid">
         {Object.entries(by_category).map(([categoryName, skillsList]) => {

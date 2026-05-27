@@ -44,3 +44,9 @@ dist-ssr/
 # OS
 .DS_Store
 Thumbs.db
+
+# Secrets & Environment Files
+.env
+.env.local
+.env.*.local
+

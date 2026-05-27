@@ -5,16 +5,7 @@ const UploadSection = ({ onUploadStart, onUploadSuccess, onUploadError }) => {
   const [dragActive, setDragActive] = useState(false);
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [progressStep, setProgressStep] = useState(0);
   const fileInputRef = useRef(null);
-
-  const steps = [
-    "Reading file data...",
-    "Extracting plain text from PDF...",
-    "Running NLP model (spaCy)...",
-    "Analyzing skills taxonomy...",
-    "Matching with job embeddings..."
-  ];
 
   const handleDrag = (e) => {
     e.preventDefault();
@@ -45,7 +36,7 @@ const UploadSection = ({ onUploadStart, onUploadSuccess, onUploadError }) => {
   };
 
   const validateAndSetFile = (selectedFile) => {
-    if (selectedFile.type !== "application/pdf" && !selectedFile.name.endsWith(".pdf")) {
+    if (selectedFile.type !== "application/pdf" && !selectedFile.name.toLowerCase().endsWith(".pdf")) {
       onUploadError("Invalid file type. Please upload a PDF file.");
       return;
     }
@@ -66,16 +57,6 @@ const UploadSection = ({ onUploadStart, onUploadSuccess, onUploadError }) => {
     setLoading(true);
     onUploadStart();
 
-    // Setup an artificial progress timer to make the experience feel premium
-    let currentStep = 0;
-    setProgressStep(0);
-    const interval = setInterval(() => {
-      if (currentStep < steps.length - 1) {
-        currentStep++;
-        setProgressStep(currentStep);
-      }
-    }, 1500);
-
     const formData = new FormData();
     formData.append("file", file);
 
@@ -84,8 +65,6 @@ const UploadSection = ({ onUploadStart, onUploadSuccess, onUploadError }) => {
         method: "POST",
         body: formData,
       });
-
-      clearInterval(interval);
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -157,13 +136,7 @@ const UploadSection = ({ onUploadStart, onUploadSuccess, onUploadError }) => {
           {loading ? (
             <div className="analysis-progress-wrapper">
               <div className="loader-ring"></div>
-              <p className="progress-step-text">{steps[progressStep]}</p>
-              <div className="progress-bar-container">
-                <div 
-                  className="progress-bar-fill" 
-                  style={{ width: `${((progressStep + 1) / steps.length) * 100}%` }}
-                ></div>
-              </div>
+              <p className="progress-step-text">Processing...</p>
             </div>
           ) : (
             <button className="btn-primary start-analysis-btn" onClick={handleAnalyze}>

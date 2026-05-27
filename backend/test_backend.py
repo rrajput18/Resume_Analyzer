@@ -1,4 +1,82 @@
 # Test script for backend parsing and matching logic
+import os
+import json
+from unittest.mock import patch
+
+# Mock responses for testing when no GEMINI_API_KEY is configured
+MOCK_AIML_RESPONSE = {
+    "extracted_skills": [
+        {"category": "Programming Languages", "skills": ["Python", "SQL", "HTML", "CSS", "React"]},
+        {"category": "Machine Learning & AI", "skills": ["BERT", "Generative AI", "LangChain", "Machine Learning", "NLP", "RAG", "Transformers", "Vector Databases"]},
+        {"category": "Frameworks & Libraries", "skills": ["FastAPI", "NumPy", "Pandas", "PyTorch"]},
+        {"category": "Databases & Tools", "skills": ["AWS", "Docker", "Git", "PostgreSQL"]},
+        {"category": "Concepts & Methodologies", "skills": ["REST APIs"]}
+    ],
+    "job_semantic_matches": [
+        {"job_id": 1, "semantic_similarity": 82},
+        {"job_id": 2, "semantic_similarity": 75},
+        {"job_id": 3, "semantic_similarity": 85},
+        {"job_id": 4, "semantic_similarity": 88},
+        {"job_id": 5, "semantic_similarity": 80},
+        {"job_id": 6, "semantic_similarity": 72},
+        {"job_id": 7, "semantic_similarity": 68},
+        {"job_id": 8, "semantic_similarity": 76},
+        {"job_id": 9, "semantic_similarity": 62},
+        {"job_id": 10, "semantic_similarity": 74}
+    ]
+}
+
+MOCK_MECH_RESPONSE = {
+    "extracted_skills": [
+        {"category": "Mechanical Engineering", "skills": ["CAD", "SolidWorks", "FEA", "ANSYS", "Thermodynamics", "Fluid Mechanics", "Robotics", "Pneumatics", "Hydraulics", "ROS"]}
+    ],
+    "job_semantic_matches": [
+        {"job_id": 11, "semantic_similarity": 88},
+        {"job_id": 15, "semantic_similarity": 82},
+        {"job_id": 16, "semantic_similarity": 90}
+    ]
+}
+
+MOCK_FINANCE_RESPONSE = {
+    "extracted_skills": [
+        {"category": "Finance & Accounting", "skills": ["Financial Analysis", "Financial Modeling", "Forecasting", "Budgeting", "Corporate Finance", "Excel", "Data Analysis"]}
+    ],
+    "job_semantic_matches": [
+        {"job_id": 24, "semantic_similarity": 92},
+        {"job_id": 23, "semantic_similarity": 48},
+        {"job_id": 9, "semantic_similarity": 66}
+    ]
+}
+
+class MockClient:
+    class Models:
+        def generate_content(self, model, contents, config):
+            class MockResponse:
+                def __init__(self, text):
+                    self.text = text
+            
+            prompt_lower = contents.lower()
+            if "john doe" in prompt_lower or "john.doe" in prompt_lower:
+                return MockResponse(json.dumps(MOCK_AIML_RESPONSE))
+            elif "jane smith" in prompt_lower or "jane.smith" in prompt_lower:
+                return MockResponse(json.dumps(MOCK_MECH_RESPONSE))
+            elif "robert johnson" in prompt_lower or "robert.j" in prompt_lower:
+                return MockResponse(json.dumps(MOCK_FINANCE_RESPONSE))
+            else:
+                return MockResponse(json.dumps({"extracted_skills": [], "job_semantic_matches": []}))
+                
+    def __init__(self, api_key=None):
+        self.models = self.Models()
+
+# Apply mock client if no GEMINI_API_KEY is found
+api_key = os.getenv("GEMINI_API_KEY")
+if not api_key or api_key == "your_gemini_api_key_here":
+    print("WARNING: GEMINI_API_KEY not configured. Running tests using MOCKED Gemini client.")
+    import matcher
+    matcher.get_gemini_client = lambda: MockClient()
+else:
+    print("SUCCESS: GEMINI_API_KEY detected. Running tests with REAL Gemini API.")
+
 from skills_extractor import extract_skills
 from matcher import match_resume
 

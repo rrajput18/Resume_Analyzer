@@ -1,9 +1,7 @@
 fastapi
 uvicorn
 pypdf
-spacy
-sentence-transformers
-scikit-learn
 python-multipart
-pandas
-numpy
+google-genai
+python-dotenv
+pydantic
