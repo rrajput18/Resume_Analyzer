@@ -79,17 +79,28 @@ class MockClient:
                     self.text = text
             
             prompt_lower = contents.lower()
-            if "john doe" in prompt_lower or "john.doe" in prompt_lower:
+            # Isolate the resume text from prompt instructions to avoid false positive matches
+            resume_part = ""
+            if "--- resume text ---" in prompt_lower:
+                parts = prompt_lower.split("--- resume text ---")[1]
+                if "--- jobs database ---" in parts:
+                    resume_part = parts.split("--- jobs database ---")[0]
+                else:
+                    resume_part = parts
+            else:
+                resume_part = prompt_lower
+                
+            if "john doe" in resume_part or "john.doe" in resume_part:
                 return MockResponse(json.dumps(MOCK_AIML_RESPONSE))
-            elif "jane smith" in prompt_lower or "jane.smith" in prompt_lower:
+            elif "jane smith" in resume_part or "jane.smith" in resume_part:
                 return MockResponse(json.dumps(MOCK_MECH_RESPONSE))
-            elif "robert johnson" in prompt_lower or "robert.j" in prompt_lower:
+            elif "robert johnson" in resume_part or "robert.j" in resume_part:
                 return MockResponse(json.dumps(MOCK_FINANCE_RESPONSE))
             else:
-                # Return standard fallback matching the profile type
-                if "mechanical" in prompt_lower or "solidworks" in prompt_lower or "cad" in prompt_lower:
+                # Return standard fallback matching the profile type keywords
+                if "solidworks" in resume_part or "ansys" in resume_part or "thermodynamics" in resume_part:
                     return MockResponse(json.dumps(MOCK_MECH_RESPONSE))
-                elif "finance" in prompt_lower or "budget" in prompt_lower or "excel" in prompt_lower:
+                elif "forecasting" in resume_part or "corporate finance" in resume_part or "accounting" in resume_part:
                     return MockResponse(json.dumps(MOCK_FINANCE_RESPONSE))
                 return MockResponse(json.dumps(MOCK_AIML_RESPONSE))
                 
