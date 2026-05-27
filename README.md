@@ -1,48 +1,108 @@
-# AI-Powered Resume Analyzer & Job Recommendation System
+# ProfileFit® - AI-Powered Resume Analyzer & Job Matcher
 
-This project is a modern web application that allows users to upload a PDF resume, parses its text, extracts technical skills using Natural Language Processing (NLP), estimates an ATS score against job descriptions, highlights missing recommended skills, and provides job matches with semantic similarity analysis.
+ProfileFit® is a state-of-the-art, responsive web application designed to help job seekers evaluate their resumes against current job descriptions. Using **Google Gemini 2.5 Flash**, the system contextually extracts skills, performs a formatting audit, predicts ATS compatibility scores, and recommends tailored additions to maximize match success.
 
-## Repository Structure
+---
 
-- `backend/`: FastAPI Python server containing the PDF parser, skills extraction engine (spaCy), and recommendation matcher (Sentence Transformers).
-- `frontend/`: React single-page application built with Vite and custom premium CSS.
+## 🌟 Key Features
 
-## Getting Started
+*   **Contextual Gemini API Matching**: Powered by `gemini-2.5-flash` with a 1M+ token context window, ensuring full-length resumes are analyzed without truncation.
+*   **Universal Skill Extraction**: Dynamic zero-shot skill extraction and categorization across all industries (Tech, Mechanical, Civil, Chemical, Finance, Business, HR, etc.) without rigid keyword matching.
+*   **ATS Compatibility Scoring**: Hybrid evaluation combining semantic text similarity (50%), math-based skill criteria (40%), and formatting checks (10%).
+*   **Automated Formatting Audit**: Structural review detecting word count issues, standard sections (Experience, Education, Projects), and missing contact details (Email, Phone).
+*   **Actionable Tailoring Suggestions**: Real-time feedback calculating how much your score will improve by adding specific missing keywords.
+*   **Stunning UI**: Responsive dashboard with animations, theme toggles (Dark/Light mode), and compatibility gauges.
+
+---
+
+## 🏗️ Architecture & Pipeline Diagram
+
+```
+[Resume PDF] ──> (pypdf Text Extraction) 
+                       │
+                       ▼ (Plain Text)
+         ┌─────────────┴─────────────┐
+         ▼                           ▼
+(Local Regex Audits)       (Google Gemini 2.5 Flash API)
+  - Word Count               - Zero-Shot Skill Extraction
+  - Section Headings         - Dynamic Categorization
+  - Contact Details          - Semantic Job Alignment Rating
+         │                           │
+         └─────────────┬─────────────┘
+                       ▼
+          (Combined ATS Score Calculation)
+                       │
+                       ▼ (Structured JSON Response)
+             [React Dashboard UI]
+```
+
+---
+
+## 📂 Project Structure
+
+*   `backend/`: FastAPI server containing parsing logic, Gemini API integrations, and the job database.
+*   `frontend/`: React SPA built with Vite and clean, responsive vanilla CSS.
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
-- Python 3.10+
-- Node.js v24.15.0+ and NPM
+*   Python 3.10+
+*   Node.js v18+ and NPM
+*   A **Google Gemini API Key** (Get one for free at the [Google AI Studio](https://aistudio.google.com/))
 
-### Running the Backend
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Download the spaCy language model:
-   ```bash
-   python -m spacy download en_core_web_sm
-   ```
-4. Start the FastAPI server:
-   ```bash
-   uvicorn main:app --reload
-   ```
-   The backend will run on `http://localhost:8000`.
+---
 
-### Running the Frontend
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the Vite development server:
-   ```bash
-   npm run dev
-   ```
-   The frontend will run on `http://localhost:5173`.
+### Backend Setup & Run
+
+1.  **Navigate to the backend folder**:
+    ```bash
+    cd backend
+    ```
+
+2.  **Install dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3.  **Configure Environment Variables**:
+    Create a `.env` file in the `backend/` directory and insert your API key:
+    ```env
+    GEMINI_API_KEY=your_gemini_api_key_here
+    ```
+
+4.  **Start the API Server**:
+    ```bash
+    uvicorn main:app --reload
+    ```
+    *The API will run on http://127.0.0.1:8000.*
+
+---
+
+### Frontend Setup & Run
+
+1.  **Navigate to the frontend folder**:
+    ```bash
+    cd ../frontend
+    ```
+
+2.  **Install node packages**:
+    ```bash
+    npm install
+    ```
+
+3.  **Start the Dev Server**:
+    ```bash
+    npm run dev
+    ```
+    *The Web app will be accessible at http://localhost:5173/.*
+
+---
+
+## ⚙️ How the ATS Scoring System Works
+
+The overall compatibility percentage is computed using three weighted layers:
+1.  **Semantic Match (50% weight)**: Gemini evaluates how close your resume's experiences and projects match the role description and responsibilities.
+2.  **Skills Match (40% weight)**: Compares required skills in the job posting against the extracted resume skills (supporting fuzzy substring matches for spelling variations).
+3.  **Formatting Check (10% weight)**: Evaluates structural layout compliance (standard sections, word counts, contact info).
