@@ -61,7 +61,7 @@ const UploadSection = ({ onUploadStart, onUploadSuccess, onUploadError }) => {
     formData.append("file", file);
 
     try {
-      const response = await fetch("https://resume-analyzer-backend.onrender.com/api/analyze", {
+      const response = await fetch("https://resume-analyzer-vqve.onrender.com/api/analyze", {
         method: "POST",
         body: formData,
       });
