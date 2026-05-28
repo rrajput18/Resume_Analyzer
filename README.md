@@ -4,6 +4,20 @@ ProfileFit® is a state-of-the-art, responsive web application designed to help 
 
 ---
 
+## 🌐 Live Demo & Deployments
+
+The project is deployed and accessible online:
+
+*   **Frontend (UI)**: [https://resume-analyzer-theta-weld.vercel.app/](https://resume-analyzer-theta-weld.vercel.app/)
+    *   *Hosted on:* **Vercel** (Static Site Hosting)
+    *   *Description:* Serves the responsive React single-page application and handles interactive charts, compatibility gauges, and theme switching.
+*   **Backend (API)**: [https://resume-analyzer-vqve.onrender.com](https://resume-analyzer-vqve.onrender.com)
+    *   *Hosted on:* **Render** (Web Service container)
+    *   *Description:* Runs the FastAPI python server, processes PDF resume uploads using PyPDF, and connects to the Google Gemini API for zero-shot extraction.
+    *   *Note on Free Hosting:* The backend uses Render's free tier, which goes to sleep after 15 minutes of inactivity. When you first access the site or upload a resume after a period of inactivity, the server may take **50-90 seconds** to boot back up. Subsequent actions will load instantly.
+
+---
+
 ## 🌟 Key Features
 
 *   **Contextual Gemini API Matching**: Powered by `gemini-2.5-flash` with a 1M+ token context window, ensuring full-length resumes are analyzed without truncation.
